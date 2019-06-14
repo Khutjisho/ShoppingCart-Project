@@ -1,0 +1,84 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img src="../assets/image/ShoppingImage.jpg">
+</div>
+<!-- <h2>Here are some links to help you start: </h2> -->
+<!-- <mat-card><h2>KLT Shopping Card</h2></mat-card> -->
+
+
+ <!-- <div *ngFor="let product of products">
+    <h3>
+        <a [title]="product.name + ' details'">
+        {{ product.name }}
+        </a>
+    </h3>
+    <mat-card-actions>
+        <button mat-button>Add_to_Cart</button>
+    </mat-card-actions>
+
+</div>  -->
+
+  <!-- <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Boy's bicycle</mat-card-title>
+        </mat-card-header>
+      <img src="../assets/image/Boys_Green_Bike.jpg" height="150" width ="150">
+      <mat-card-actions>
+        <button mat-button>Add-to-Cart</button> 
+      </mat-card-actions>
+    </mat-card>
+<br>
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Boy's bicycle</mat-card-title>
+          </mat-card-header>
+        <img src="../assets/image/Dress.jpg" height="150" width ="150">
+        <mat-card-actions>
+          <button mat-button>Add-to-Cart</button> 
+        </mat-card-actions>
+      </mat-card> -->
+
+<mat-card>
+          <mat-card-title><h2>Product Details</h2></mat-card-title>
+    
+       <mat-grid-list cols= "2" rowHeight= "2:1">
+       <mat-grid-tile *ngFor="let Product of Products">
+        
+          <img src ="../assets/image/{{Product.ProductName}}"/>
+          <p>
+        {{Product.ProductDescription}}
+         R{{Product.ProductPrice}}
+          <button mat-raised-button (click) = "new(Product)">AddtoCart</button> 
+          </p>
+        </mat-grid-tile>
+        </mat-grid-list>  
+      </mat-card>
+
+      <mat-card-title><h2>New Product Details</h2></mat-card-title>
+      
+    <mat-card *ngFor="let newProduct of newProducts">
+          
+     <mat-grid-list cols= "2" rowHeight= "2:1">
+     <mat-grid-tile >
+      
+        <img src ="../assets/image/{{newProduct.ProductName}}"/>
+        <p>
+      {{newProduct.ProductDescription}}
+       R{{newProduct.ProductPrice}}
+       <button mat-raised-button (click) = "RemoveProduct(newProduct)">Delete</button>
+        </p>
+       
+          </mat-grid-tile>
+      </mat-grid-list> 
+      
+    </mat-card>
+    <!-- {{Quantity}} -->
+    <b>Total Amount</b> R{{TotalAmount}}
+<!-- 
+    <h2 *ngIf = "empty">Your Cart is empty! </h2> -->
+<router-outlet></router-outlet> 
